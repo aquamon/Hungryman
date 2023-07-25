@@ -9,8 +9,7 @@ In the project directory, you can run:
 ### `npm run dev`
 
 Runs the app in the development mode.\
-Open [http://localhost:5173](http://localhost:5173) to view it in your browser.
-5173 : Its the default port for Vite to run, you can configure this in vite config.
+5173 : Its the default port for Vite to run, you can configure this in vite config.\
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
@@ -29,11 +28,6 @@ Your app is ready to be deployed!
 
 You can preview the build output in the local machine.
 
-
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
 ### Deployment
 
