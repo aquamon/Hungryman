@@ -157,8 +157,8 @@ const AboutMe = () => {
 
                             <div className="flex flex-col justify-between lg:items-start gap-2">
                                 <div>DO CHECK IT ❤️</div>
-                                <Link to=""><button className=" bg-green-500 rounded-lg p-2 lg:text-xl font-semibold px-4">Live link</button></Link>
-                                <Link to=""><button className="bg-green-500 rounded-lg p-2 lg:text-xl font-semibold px-4">Github link</button></Link>
+                                <Link to="https://hungryman.netlify.app" target="_blank"><button className=" bg-green-500 rounded-lg p-2 lg:text-xl font-semibold px-4">Live link</button></Link>
+                                <Link to="https://github.com/aquamon/Hungryman"target="_blank" ><button className="bg-green-500 rounded-lg p-2 lg:text-xl font-semibold px-4">Github link</button></Link>
 
 
                             </div>
