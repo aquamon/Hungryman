@@ -50,7 +50,7 @@ const Cart = () => {
             key: import.meta.env.VITE_RAZORPAY_ID,
             amount: price * 100,
             currency: "INR",
-            name: "YUMMY JUNCTION",
+            name: "HUNGRYMAN",
             description: "Thank you for your test purchase",
             image: '',
             handler: handlePaymentSuccess,

@@ -10,10 +10,11 @@ const RestaurantCard = (props) => {
 
 
   const {
-    cloudinaryImageId, name, avgRating, cuisines, costForTwo, deliveryTime,
+    cloudinaryImageId, name, avgRating, cuisines, costForTwo,sla
 
     // eslint-disable-next-line no-unsafe-optional-chaining, react/prop-types
-  } = resData?.data;
+  } = resData?.info;
+
 
   const rateColor = avgRating >= 4 ? "bg-green-500" : "bg-orange-500";
 
@@ -31,10 +32,10 @@ const RestaurantCard = (props) => {
             <AiFillStar className='staricon ' /><span className="number text-[0.8rem]">{avgRating}</span>
           </div>
           <div className="deliveryTime font-open text-xs font-semibold text-gray-500">
-            {deliveryTime} MINS
+            {sla.deliveryTime} MINS
           </div>
           <div className="costOfTwo font-open text-xs  font-semibold text-gray-500">
-            ₹{costForTwo / 100} FOR TWO
+            {costForTwo}
           </div>
 
 

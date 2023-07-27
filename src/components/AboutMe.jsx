@@ -53,7 +53,7 @@ const AboutMe = () => {
                 {activeItem === "aboutme" && (
                     <div className="flex mb-3 justify-center items-center font-sans bg-black/5 rounded-xl lg:w-[70%]">
                         <div className="content px-4 text-sm font-medium py-4 p-2">
-                            I am a Software Engineer, with 2.5 years of Industry Experience. Graduated in 2020, with B.Tech in Computer Science and Engineering,
+                            I am a Software Engineer, with 2.5 years of Industry Experience. Currently Working at Bosch Global Software Technologies, Bengaluru India. Graduated in 2020, with B.Tech in Computer Science and Engineering,
                             I always am up for working in an environment, where I can contribute and also learn and enhance my skills.
                         </div>
                     </div>
@@ -89,6 +89,9 @@ const AboutMe = () => {
                             <span className="bg-black/5 font-medium text-slate-700 rounded-md p-2 hover:bg-black/20 hover:transition-transform flex justify-center items-center  lg:mx-5">OBJECT ORIENTED PRINCIPLES</span>
                             <span className="bg-black/5 font-medium text-slate-700 rounded-md p-2 hover:bg-black/20 hover:transition-transform flex justify-center items-center  lg:mx-5">DESIGN PATTERNS</span>
                             <span className="bg-black/5 font-medium text-slate-700 rounded-md p-2 hover:bg-black/20 hover:transition-transform flex justify-center items-center  lg:mx-5">SYSTEM DESIGN</span>
+                            <span className="bg-black/5 font-medium text-slate-700 rounded-md p-2 hover:bg-black/20 hover:transition-transform flex justify-center items-center  lg:mx-5">SEQUELIZE</span>
+                            <span className="bg-black/5 font-medium text-slate-700 rounded-md p-2 hover:bg-black/20 hover:transition-transform flex justify-center items-center  lg:mx-5">HIBERNATE</span>
+                            <span className="bg-black/5 font-medium text-slate-700 rounded-md p-2 hover:bg-black/20 hover:transition-transform flex justify-center items-center  lg:mx-5">JPA</span>
                             <span className="bg-black/5 font-medium text-slate-700 rounded-md p-2 hover:bg-black/20 hover:transition-transform flex justify-center items-center  lg:mx-5">PROBLEM SOLVING</span>
                             <span className="bg-black/5 font-medium text-slate-700 rounded-md p-2 hover:bg-black/20 hover:transition-transform flex justify-center items-center  lg:mx-5">MSSQL SERVER</span>
                             <span className="bg-black/5 font-medium text-slate-700 rounded-md p-2 hover:bg-black/20 hover:transition-transform flex justify-center items-center  lg:mx-5">MySQL</span>
@@ -175,7 +178,7 @@ const AboutMe = () => {
                 {activeItem === "resume" && (
                     <div className="flex w-full mb-3 justify-center items-center font-sans bg-black/5 px-2 rounded-xl  lg:w-[70%]">
                         <div className="content px-4 text-sm p-2 w-full rounded-xl">
-                            <a className="flex justify-center items-center" href="" download="resume.pdf">
+                            <a className="flex justify-center items-center" href="https://drive.google.com/file/d/1MobC9_W4Z_WIGpdg2mYLM16oIXCiXYP-/view?usp=sharing" download="resume.pdf">
                                 <button className="flex justify-center gap-2 items-center"><img className="w-6" src="https://i.postimg.cc/PqDG0cq1/1092004.png" alt="" /> <span className="font-semibold text-xl">Resume</span></button>
                             </a>
                         </div>

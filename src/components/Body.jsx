@@ -8,6 +8,7 @@ import { Pagination, Navigation } from "swiper";
 import { Link } from "react-router-dom";
 import ShimmerBody from "./ShimmerBody";
 import { BiSearchAlt } from "react-icons/bi"
+import { calculateCost } from "../utils/helper";
 
 
 const Body = () => {
@@ -25,9 +26,10 @@ const Body = () => {
             const ress = await fetch(import.meta.env.VITE_MAIN_API);
             const pinky = await ress.json();
             console.log("data RAw : ",pinky);
-            setListOfRestaurants(pinky?.data?.cards[2]?.data?.data?.cards);
-            setCarousel(pinky?.data?.cards[0]?.data?.data?.cards);
-            setFilterListOfRestaurants(pinky?.data?.cards[2]?.data?.data?.cards);
+            console.log("restaurants : ",pinky?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+            setListOfRestaurants(pinky?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+            setCarousel(pinky?.data?.cards[0]?.card?.card?.imageGridCards?.info);
+            setFilterListOfRestaurants(pinky?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
 
             console.log("Restaurants : -",listOfRestaurants);
         }
@@ -37,7 +39,7 @@ const Body = () => {
     }
 
     function filterData(searchText, listOfRestaurants) {
-        const filterData = listOfRestaurants?.filter((re) => re?.data?.name?.toUpperCase()?.includes(searchText?.toUpperCase()));
+        const filterData = listOfRestaurants?.filter((re) => re?.info?.name?.toUpperCase()?.includes(searchText?.toUpperCase()));
         return filterData;
     }
 
@@ -81,9 +83,9 @@ const Body = () => {
                                     carousel &&
                                     carousel?.map((cc) => {
                                         return (
-                                            <SwiperSlide key={cc?.data?.bannerId} className="py-10">
+                                            <SwiperSlide key={cc?.id} className="py-10">
                                                 <div className="">
-                                                    <img src={import.meta.env.VITE_MENU_IMG_API + cc.data.creativeId} alt="" className="hover:scale-110 transition-all duration-[0.6s] ease-in-out z-[99999]" />
+                                                    <img src={import.meta.env.VITE_BANNER_IMG + cc.imageId} alt="" className="hover:scale-110 transition-all duration-[0.6s] ease-in-out z-[99999]" />
                                                 </div>
                                             </SwiperSlide>
                                         )
@@ -121,7 +123,7 @@ const Body = () => {
                         <div className="filter w-[60%] flex justify-between items-center gap-3 rounded-lg  max-[760px]:w-full max-[760px]:bg-gray-200 max-[760px]:font-bold px-1">
                             <button className="filter-btn font-semibold text-lg text-gray-800 p-2 rounded-md hover:bg-black/10 max-[760px]:text-sm max-[560px]:text-[10px] " onClick={() => {
                                 let sortedList = [...listOfRestaurants];
-                                sortedList.sort((a, b) => a.data.deliveryTime - b.data.deliveryTime);
+                                sortedList.sort((a, b) => a.info.sla.deliveryTime - b.info.sla.deliveryTime);
                                 setFilterListOfRestaurants(sortedList);
 
                             }}>
@@ -129,7 +131,7 @@ const Body = () => {
                             </button>
                             <button className="filter-btn font-semibold text-lg text-gray-800 p-2 rounded-md hover:bg-black/10 max-[760px]:text-sm max-[560px]:text-[10px] " onClick={() => {
                                 let sortedList = [...listOfRestaurants];
-                                sortedList.sort((a, b) => b.data.avgRating - a.data.avgRating);
+                                sortedList.sort((a, b) => b.info.avgRating - a.info.avgRating);
                                 setFilterListOfRestaurants(sortedList);
 
                             }}>
@@ -137,14 +139,14 @@ const Body = () => {
                             </button>
                             <button className="filter-btn font-semibold text-lg text-gray-800 p-2 rounded-md hover:bg-black/10 max-[760px]:text-sm max-[560px]:text-[10px] " onClick={() => {
                                 let sortedList = [...listOfRestaurants];
-                                sortedList.sort((a, b) => a.data.costForTwo - b.data.costForTwo);
+                                sortedList.sort((a, b) => calculateCost(a.info.costForTwo) - calculateCost(b.info.costForTwo));
                                 setFilterListOfRestaurants(sortedList);
                             }}>
                                 Cost : Low To High
                             </button>
                             <button className="filter-btn font-semibold text-lg text-gray-800 p-2 rounded-md hover:bg-black/10 max-[760px]:text-sm max-[560px]:text-[10px] " onClick={() => {
                                 let sortedList = [...listOfRestaurants];
-                                sortedList.sort((a, b) => b.data.costForTwo - a.data.costForTwo);
+                                sortedList.sort((a, b) => calculateCost(b.info.costForTwo) - calculateCost(a.info.costForTwo));
                                 setFilterListOfRestaurants(sortedList);
                             }}>
                                 Cost : High To Low
@@ -158,7 +160,7 @@ const Body = () => {
                         {
                             
                             listOfRestaurants &&
-                            filterListOfRestaurants?.map((restaurant) => (<Link key={restaurant?.data?.id} to={"/restaurants/" + restaurant?.data?.id} ><RestaurantCard resData={restaurant} /></Link>))
+                            filterListOfRestaurants?.map((restaurant) => (<Link key={restaurant?.info?.id} to={"/restaurants/" + restaurant?.info?.id} ><RestaurantCard resData={restaurant} /></Link>))
                         }
                         {console.log("List of ressss : ",filterListOfRestaurants)}
                     </div>

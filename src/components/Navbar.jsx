@@ -47,8 +47,8 @@ const Navbar = () => {
         <div className="parent flex justify-center w-full ">
             <div className="navbar flex  justify-center items-center w-full  max-[800px]:justify-between" >
                 <div className="left  flex  justify-center items-center  lg:gap-3 max-[1000px]:w-[60%] max-[660px]:w-full">
-                    <Link to="/" className="flex justify-center items-center pl-5"><div className="logo-container  lg:p-1 max-[1000px]:w-full ">
-                        <img className="pt-4 py-2 logo w-40 h-16 lg:w-52 lg:h-20" src="https://i.postimg.cc/qqtBMBMZ/YUMMY-JUCTION-LOGO.png" alt="" />
+                    <Link to="/" className="flex justify-center items-center pl-5"><div className="logo-container lg:p-1 max-[1000px]:w-full hover:scale-110 transition-all duration-[0.6s] ease-in-out z-[99999]">
+                        <img className="pt-4 py-2 logo w-40 h-16 lg:w-52 lg:h-20" src="https://i.postimg.cc/T3RHjqfk/hungrymanlogo.jpg" alt="" />
                     </div></Link>
                     <div className="workplace flex  gap-2 items-center justify-start font-semibold p-2 m-2 max-[1000px]:w-[40%]">
                         <LocationOnOutlinedIcon className="location " />
