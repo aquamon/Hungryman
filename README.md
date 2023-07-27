@@ -28,13 +28,6 @@ Your app is ready to be deployed!
 
 You can preview the build output in the local machine.
 
-
-<<<<<<< HEAD
-
-
-
-=======
->>>>>>> b2e5b817abec513c8d200e2349d5e184e679da1e
 ### Deployment
 
 This project has been deployed here: [https://hungryman.netlify.app/](https://hungryman.netlify.app/)
