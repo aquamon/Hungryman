@@ -178,7 +178,7 @@ const AboutMe = () => {
                 {activeItem === "resume" && (
                     <div className="flex w-full mb-3 justify-center items-center font-sans bg-black/5 px-2 rounded-xl  lg:w-[70%]">
                         <div className="content px-4 text-sm p-2 w-full rounded-xl">
-                            <a className="flex justify-center items-center" href="https://drive.google.com/file/d/1MobC9_W4Z_WIGpdg2mYLM16oIXCiXYP-/view?usp=sharing" download="resume.pdf">
+                            <a className="flex justify-center items-center" href="https://drive.google.com/file/d/1HSd1fxiVMZJDEQz7_eji-zs78tgGiS0S/view?usp=sharing" download="resume.pdf">
                                 <button className="flex justify-center gap-2 items-center"><img className="w-6" src="https://i.postimg.cc/PqDG0cq1/1092004.png" alt="" /> <span className="font-semibold text-xl">Resume</span></button>
                             </a>
                         </div>

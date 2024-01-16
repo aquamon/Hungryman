@@ -9,34 +9,48 @@ import { Link } from "react-router-dom";
 import ShimmerBody from "./ShimmerBody";
 import { BiSearchAlt } from "react-icons/bi"
 import { calculateCost } from "../utils/helper";
+import useApiRes from "../utils/useApiRes";
 
 
 const Body = () => {
+    const [web,setWeb] = useState(true);
     const [noOfItems, setNoOfItems] = useState(4);
     const [searchText, setSearchText] = useState("");
     const [listOfRestaurants, setListOfRestaurants] = useState(null);
     const [carousel, setCarousel] = useState(null);
     const [filterListOfRestaurants, setFilterListOfRestaurants] = useState(null);
 
+    const resData = useApiRes();
+    console.log(resData);
+    const showData = web ? resData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants : resData?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+    // console.log("*******show data*********");
+    // console.log(showData);
+    // console.log("*******carousel*********");
+    // console.log(carousel);
+    // console.log("*******list of Rest*********");
+    // console.log(listOfRestaurants);
+   
 
+    // const getData = async () => {
+    //     try {
+    //         const ress = await fetch(import.meta.env.VITE_MAIN_API);
+    //         const pinky = await ress.json();
+    //         console.log("data RAw : ",pinky);
+    //         console.log("restaurants : ",pinky?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    //         web?setListOfRestaurants(pinky?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants):setListOfRestaurants(
+    //             pinky?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    //         );
+    //         setCarousel(pinky?.data?.cards[0]?.card?.card?.imageGridCards?.info);
+    //         web?setFilterListOfRestaurants(pinky?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants):setFilterListOfRestaurants(
+    //             pinky?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    //         );
 
-
-    const getData = async () => {
-        try {
-            const ress = await fetch(import.meta.env.VITE_MAIN_API);
-            const pinky = await ress.json();
-            console.log("data RAw : ",pinky);
-            console.log("restaurants : ",pinky?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-            setListOfRestaurants(pinky?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-            setCarousel(pinky?.data?.cards[0]?.card?.card?.imageGridCards?.info);
-            setFilterListOfRestaurants(pinky?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-
-            console.log("Restaurants : -",listOfRestaurants);
-        }
-        catch (err) {
-            console.log(err);
-        }
-    }
+    //         console.log("Restaurants : -",listOfRestaurants);
+    //     }
+    //     catch (err) {
+    //         console.log(err);
+    //     }
+    // }
 
     function filterData(searchText, listOfRestaurants) {
         const filterData = listOfRestaurants?.filter((re) => re?.info?.name?.toUpperCase()?.includes(searchText?.toUpperCase()));
@@ -45,14 +59,28 @@ const Body = () => {
 
 
     useEffect(() => {
-        getData();
-    }, [])
-    useEffect(() => {
         let deviceWidth = window.innerWidth;
+        if (deviceWidth < 660) {
+            console.log("Hello");
+            setWeb(false);
+        }
+        console.log("web : ",web);
+        console.log("width : ",deviceWidth);
         if (deviceWidth < 660 && deviceWidth > 300) {
             setNoOfItems(2);
         }
-    }, [])
+        setListOfRestaurants(showData);
+        setFilterListOfRestaurants(showData);
+        setCarousel(resData?.data?.cards[0]?.card?.card?.imageGridCards?.info);
+    }, [showData,carousel,listOfRestaurants])
+    // useEffect(() => {
+    //     let deviceWidth = window.innerWidth;
+    //     if (deviceWidth < 660 && deviceWidth > 300) {
+    //         setNoOfItems(2);
+    //     }
+    //     // getData();
+    // }, [])
+   
 
 
 
